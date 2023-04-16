@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className=' ml-5 '>
-          <audio autoPlay  loop ref={musicRef}>
+          <audio  loop ref={musicRef}>
             <source src={backgroundMusic} />
           </audio>
           <img src={isMuted ? music : muted} alt="music" onClick={toggleMuted} />

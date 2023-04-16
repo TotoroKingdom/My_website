@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import kallkaLogo from './kallka_logo.svg'
 import backend from "./backend.png";
 import creator from "./creator.png";
@@ -27,19 +26,21 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import firework from "./firework.png";
+import dice from "./dice.png";
+import particles from "./particles.png";
 
 import backgroundMusic from './music/bgm.mp3'
 import music from './music/music.png'
 import muted from './music/muted.png'
 
+import primogem from './company/primogem.png'
+
 export {
+  primogem,
   backgroundMusic,
   music,
   muted,
-  logo,
   kallkaLogo,
   backend,
   creator,
@@ -65,7 +66,7 @@ export {
   shopify,
   starbucks,
   tesla,
-  carrent,
-  jobit,
-  tripguide,
+  firework,
+  dice,
+  particles,
 };
