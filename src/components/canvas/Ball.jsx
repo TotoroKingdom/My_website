@@ -39,7 +39,7 @@ const BallCanvas = ({ icon }) => {
     >
       <OrbitControls enableZoom={false} />
 
-      <Suspense  >
+      <Suspense fallback={<CanvasLoader/>}  >
         <Ball imgUrl={icon} />
       </Suspense>
       <Preload all />

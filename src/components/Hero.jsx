@@ -26,7 +26,7 @@ const Hero = () => {
           text-white-100
           `}>
             A Front end Web Developer , now learning Three.js <br className='sm:block hidden' />
-            Lazy cancer patients, out of interest<br className='sm:block hidden' />
+            Lazy cancer patients, out of interest <br className='sm:block hidden' />
             Genshin Impact lovers
           </p>
         </div>
