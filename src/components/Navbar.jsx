@@ -95,7 +95,7 @@ const Navbar = () => {
           <audio  loop ref={musicRef}>
             <source src={backgroundMusic} />
           </audio>
-          <img src={isMuted ? music : muted} alt="music" onClick={toggleMuted} />
+          <img src={isMuted ? music : muted} alt="music" onClick={toggleMuted}  className='cursor-pointer' />
         </div>
       </div>
     </nav >
