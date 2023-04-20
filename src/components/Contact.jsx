@@ -81,7 +81,7 @@ const Contact = () => {
             font-medium mb-4' >Your Email</span>
             <input type="text" name='email' value={form.email}
               onChange={handleChange}
-              placeholder="What's your eamil"
+              placeholder="What's your email"
               className='bg-tertiary py-4 px-6
             placeholder:text-secondary text-white 
             rounded-lg outlined-none border-none 

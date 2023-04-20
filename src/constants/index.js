@@ -15,10 +15,7 @@ import {
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
+  tracemoe,
   primogem,
   firework,
   dice,
@@ -222,6 +219,23 @@ const projects = [
     image: particles,
     source_code_link: "https://github.com/KallkaGo/ParticlesEffect",
   },
+  {
+    name: "ACG-SEARCH",
+    description:
+      "AdachiBOT Plugin which search animation name by  picture  ",
+    tags: [
+      {
+        name: "TraceMoe",
+        color: "green-text-gradient",
+      },
+      {
+        name: "Typescript",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: tracemoe,
+    source_code_link: "https://github.com/KallkaGo/acg_search",
+  }
 ];
 
 export { services, technologies, experiences, testimonials, projects };

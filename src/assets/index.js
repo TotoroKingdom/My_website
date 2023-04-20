@@ -36,7 +36,10 @@ import muted from './music/muted.png'
 
 import primogem from './company/primogem.png'
 
+import tracemoe from './tracemoe.jpg'
+
 export {
+  tracemoe,
   primogem,
   backgroundMusic,
   music,
