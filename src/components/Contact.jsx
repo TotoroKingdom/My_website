@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { m, motion } from 'framer-motion'
+import {  motion } from 'framer-motion'
 import emailJs from '@emailjs/browser'
 
 import { styles } from '../styles'

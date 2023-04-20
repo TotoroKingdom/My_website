@@ -10,7 +10,7 @@ const Computers = ({ isMobile }) => {
   const computer = useGLTF('./desktop_pc/scene.gltf')
 
   return <primitive object={computer.scene}
-    position={isMobile ? [0, -3.25, -1.5]: [0, -5, -1.5]}
+    position={isMobile ? [0, -3.25, -1.5] : [0, -5, -1.5]}
     rotation={[-0.01, -0.2, -0.1]}
     scale={isMobile ? 0.75 : 1}
   />
@@ -42,6 +42,7 @@ const ComputersCanvas = () => {
       camera={{ position: [20, 3, 5], fov: 45, near: 0.1, far: 1000 }}
       gl={{ preserveDrawingBuffer: true }}
     >
+
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
