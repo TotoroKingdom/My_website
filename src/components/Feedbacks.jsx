@@ -14,7 +14,7 @@ const FeedBackCard = ({ index, testimonial, name, designation, company, image })
       '
       >
         <p className='text-white font-black text-[48px] '>
-        ''
+          ''
         </p>
         <div className='mt-1 '>
           <p className='text-white tracking-wider
@@ -25,13 +25,13 @@ const FeedBackCard = ({ index, testimonial, name, designation, company, image })
               <p className='text-white font-medium text-[16px]' >
                 <span className='blue-text-gradient' >@</span>{name}
               </p>
-              <p className='mt-1 text-secondary text-[12px]' >  
+              <p className='mt-1 text-secondary text-[12px]' >
                 {designation} of {company}
               </p>
             </div>
 
             <img src={image} alt={`feedback-by-${name}`}
-            className='w-10 h-10 rounded-full object-cover'
+              className='w-10 h-10 rounded-full object-cover'
             />
 
           </div>
@@ -59,7 +59,7 @@ const Feedbacks = () => {
       <div
         className={`${styles.paddingX} -mt-20 pb-14 flex flex-wrap gap-7 `}
       >
-        {testimonials.length &&testimonials.map((testimonial, index) => {
+        {testimonials.length > 0 && testimonials.map((testimonial, index) => {
           return (
             <FeedBackCard key={testimonial.name} index={index} {...testimonial} />
           )
