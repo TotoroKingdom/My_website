@@ -56,7 +56,7 @@ const About = () => {
         real-world problems.Also I am a fan of games from MMORPG to FPS, I wish I could be your friend!
 
       </motion.p>
-      <div className='mt-20 flex flex-wrap gap-10'>
+      <div className='mt-20 flex flex-wrap gap-10 justify-center '>
         {services.map((service, index) => {
           return (<ServiceCard key={service.title} index={index} {...service} />)
         })}
