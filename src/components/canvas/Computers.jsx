@@ -42,7 +42,6 @@ const ComputersCanvas = () => {
       camera={{ position: [20, 3, 5], fov: 45, near: 0.1, far: 1000 }}
       gl={{ preserveDrawingBuffer: true }}
     >
-
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
@@ -61,7 +60,6 @@ const ComputersCanvas = () => {
         <Computers isMobile={isMobile} />
         <Preload all />
       </Suspense>
-
     </Canvas>
   )
 }
