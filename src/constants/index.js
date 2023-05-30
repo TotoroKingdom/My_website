@@ -129,6 +129,13 @@ const experiences = [
 ];
 
 const testimonials = [
+  {
+    target:'I want to read and learn GLSL Shader Language book to improve myself',
+    progress:'15%'
+  },
+  {
+    target:'fitness every day'
+  }
   // {
   //   testimonial:
   //     "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
