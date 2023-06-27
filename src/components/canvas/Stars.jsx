@@ -14,13 +14,17 @@ import fragmentShader from './shader/stars/fragment.glsl'
 const Stars = (props) => {
   const ref = useRef()
 
+  const materialRef = useRef()
+
   const count = 5000
 
-  const sphere = random.inSphere(new Float32Array(count*3), { radius: 1.2 })
+  const sphere = random.inSphere(new Float32Array(count * 3), { radius: 1.2 })
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10
     ref.current.rotation.y -= delta / 15
+    materialRef.current.uniforms.uTime.value += delta
+    console.log( materialRef.current.uniforms.uTime.value);
   })
 
   return (
@@ -32,12 +36,15 @@ const Stars = (props) => {
         {...props}
       >
         <shaderMaterial
+          ref={materialRef}
           transparent
           depthWrite={false}
           blending={THREE.AdditiveBlending}
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
-          
+          uniforms={{
+            uTime: { value: 0 }
+          }}
         ></shaderMaterial>
       </Points>
     </group>
