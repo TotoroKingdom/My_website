@@ -1,4 +1,6 @@
+attribute vec3 color;
 varying vec2 vUv;
+varying vec3 vColor;
 
 void main() {
   vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -7,6 +9,7 @@ void main() {
   gl_Position = projectedPosition;
   gl_PointSize = 5.;
   gl_PointSize = gl_PointSize * (1. / -viewPosition.z);
-  vUv =uv;
+  vUv = uv;
+  vColor = color;
 
 }

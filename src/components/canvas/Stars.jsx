@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { useRef, Suspense } from 'react'
+import { useRef, Suspense, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 import { Points, PointMaterial, Preload } from '@react-three/drei'
@@ -20,11 +20,28 @@ const Stars = (props) => {
 
   const sphere = random.inSphere(new Float32Array(count * 3), { radius: 1.2 })
 
+  console.log(sphere)
+
+  const color = new Float32Array(count * 3)
+
+
+
+  for (let i = 0; i < count; i++) {
+    const i3 = i * 3
+    //r
+    color[i3] = Math.random()
+    //g
+    color[i3 + 1] = Math.random()
+    //b
+    color[i3 + 2] = Math.random()
+
+  }
+
+
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10
     ref.current.rotation.y -= delta / 15
     materialRef.current.uniforms.uTime.value += delta
-    console.log( materialRef.current.uniforms.uTime.value);
   })
 
   return (
@@ -32,6 +49,7 @@ const Stars = (props) => {
       <Points ref={ref}
         positions={sphere}
         stride={3}
+        colors={color}
         frustumCulled
         {...props}
       >
