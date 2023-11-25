@@ -20,11 +20,7 @@ const Stars = (props) => {
 
   const sphere = random.inSphere(new Float32Array(count * 3), { radius: 1.2 })
 
-  console.log(sphere)
-
   const color = new Float32Array(count * 3)
-
-
 
   for (let i = 0; i < count; i++) {
     const i3 = i * 3
@@ -70,7 +66,7 @@ const Stars = (props) => {
 }
 
 
-const  StarsCanvas = () => {
+const StarsCanvas = () => {
   return (
     <div className='w-full h-auto absolute inset-0
     z-[-1]
