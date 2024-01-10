@@ -20,7 +20,7 @@ const Sun = () => {
 
   const aroundRef = useRef()
 
-  const cubeRenderTarget = new WebGLCubeRenderTarget(256, {
+  const cubeRenderTarget = new WebGLCubeRenderTarget(128, {
     colorSpace: SRGBColorSpace
   })
   const cubeCamera = new CubeCamera(0.1, 10, cubeRenderTarget)
@@ -70,7 +70,7 @@ const Sun = () => {
         />
       </mesh>
       <mesh scale={2} ref={aroundRef} >
-        <sphereGeometry args={[1.1, 30, 30]} />
+        <sphereGeometry args={[1.05, 30, 30]} />
         <shaderMaterial
           side={BackSide}
           vertexShader={vertexAround}
