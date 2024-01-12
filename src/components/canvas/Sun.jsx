@@ -15,6 +15,7 @@ import fragmentAround from './shader/around/fragment.glsl'
 
 
 const Sun = () => {
+  /* 如果使用了useThree需要指定除viewport之外的 因为useThree是响应式的钩子 重复渲染组件可能会导致纹理旋转被冻结 */
 
   const sunMatRef = useRef()
 
