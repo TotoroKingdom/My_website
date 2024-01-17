@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import {  motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import emailJs from '@emailjs/browser'
 
 import { styles } from '../styles'
@@ -23,6 +23,10 @@ const Contact = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (!form.name && !form.email && !form.message) {
+      alert('Please fill in form')
+      return
+    }
     setLoading(true)
     emailJs.send('service_hzorj2i', 'template_q26i4rg', {
       from_name: form.name,
@@ -42,7 +46,7 @@ const Contact = () => {
       })
     }, (err) => {
       setLoading(false)
-      console.error(err);
+      console.error(err)
 
       alert('Something went wrong.')
     })
