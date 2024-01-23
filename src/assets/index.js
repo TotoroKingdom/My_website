@@ -38,7 +38,12 @@ import primogem from './company/primogem.png'
 
 import tracemoe from './tracemoe.jpg'
 
+import meoCloud from './meoCloud.png'
+import aigc from './aigc.png'
+
 export {
+  aigc,
+  meoCloud,
   tracemoe,
   primogem,
   backgroundMusic,

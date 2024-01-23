@@ -21,6 +21,8 @@ import {
   dice,
   particles,
   threejs,
+  meoCloud,
+  aigc
 } from "../assets";
 
 export const navLinks = [
@@ -276,6 +278,48 @@ const projects = [
     ],
     image: tracemoe,
     source_code_link: "https://github.com/KallkaGo/acg_search",
+  },
+  {
+    name:'MEO.CLOUD',
+    description:
+      "Web 3D virtual world, six scenes, includ challenges , chat, relax ",
+    tags: [
+      {
+        name: "Threejs",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "GSAP",
+        color: "ivory-text-gradient",
+      },
+      {
+        name: "JQuery",
+        color: "red-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: meoCloud,
+    source_code_link: "https://meo.meo.plus",
+  },
+  {
+    name:'NanXiang-AIGC',
+    description:
+      "3D art exhibition, roaming + clicking the button to automatically go ",
+    tags: [
+      {
+        name: "Threejs",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: aigc,
+    source_code_link: "https://meo.meo.plus/aigc",
   }
 ];
 
