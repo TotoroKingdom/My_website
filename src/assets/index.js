@@ -26,9 +26,9 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
-import firework from "./firework.png";
-import dice from "./dice.png";
-import particles from "./particles.png";
+import firework from "./project/firework.png";
+import dice from "./project/dice.png";
+import particles from "./project/particles.png";
 
 import backgroundMusic from './music/bgm.mp3'
 import music from './music/music.png'
@@ -36,10 +36,10 @@ import muted from './music/muted.png'
 
 import primogem from './company/primogem.png'
 
-import tracemoe from './tracemoe.jpg'
+import tracemoe from './project/tracemoe.jpg'
 
-import meoCloud from './meoCloud.png'
-import aigc from './aigc.png'
+import meoCloud from './project/meoCloud.png'
+import aigc from './project/aigc.png'
 
 export {
   aigc,

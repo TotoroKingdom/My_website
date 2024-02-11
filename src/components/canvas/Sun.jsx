@@ -2,7 +2,6 @@ import { Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
 import { CubeCamera, WebGLCubeRenderTarget, Scene, SRGBColorSpace, SphereGeometry, ShaderMaterial, DoubleSide, Mesh, BackSide } from 'three'
-import CanvasLoader from '../Loader'
 import { useRef } from 'react'
 import textureVertex from './shader/texture/vertex.glsl'
 import textureFragment from './shader/texture/fragment.glsl'
@@ -87,7 +86,7 @@ const Sun = () => {
 const EarthCanvas = () => {
   return (
     <Canvas
-      frameloop={"demand"}
+      // frameloop={"demand"}
       gl={{ preserveDrawingBuffer: true }}
       camera={{
         fov: 45,
@@ -99,6 +98,7 @@ const EarthCanvas = () => {
     >
       <OrbitControls
         autoRotate
+        autoRotateSpeed={0.5}
         enableZoom={false}
         enablePan={false}
         rotateSpeed={0.1}
