@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import emailJs from '@emailjs/browser'
 
 import { styles } from '../styles'
-import { EarthCanvas } from './canvas'
+import { SunCanvas } from './canvas'
 import SectionWrapper from '../hoc'
 import { slideIn } from '../utils/motion'
 
@@ -133,7 +133,7 @@ const Contact = () => {
       h-[350px]
       '
       >
-        <EarthCanvas />
+        <SunCanvas />
       </motion.div>
     </div>
   )

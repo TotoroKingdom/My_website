@@ -83,7 +83,7 @@ const Sun = () => {
 
 
 
-const EarthCanvas = () => {
+const SunCanvas = () => {
   return (
     <Canvas
       // frameloop={"demand"}
@@ -112,4 +112,4 @@ const EarthCanvas = () => {
   )
 }
 
-export default EarthCanvas
+export default SunCanvas
