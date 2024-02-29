@@ -1,78 +1,70 @@
-import { Suspense } from 'react'
+import { Suspense, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Preload, useGLTF } from '@react-three/drei'
-import { CubeCamera, WebGLCubeRenderTarget, Scene, SRGBColorSpace, SphereGeometry, ShaderMaterial, DoubleSide, Mesh, BackSide } from 'three'
-import { useRef } from 'react'
+import { OrbitControls, Preload, useGLTF, RenderCubeTexture } from '@react-three/drei'
 import textureVertex from './shader/texture/vertex.glsl'
 import textureFragment from './shader/texture/fragment.glsl'
 import vertexSun from './shader/sun/vertex.glsl'
 import fragmentSun from './shader/sun/fragment.glsl'
 import vertexAround from './shader/around/vertex.glsl'
 import fragmentAround from './shader/around/fragment.glsl'
-
-
-
+import * as THREE from 'three'
 
 const Sun = () => {
-  /* 如果使用了useThree需要指定除viewport之外的 因为useThree是响应式的钩子 重复渲染组件可能会导致纹理旋转被冻结 */
+  const sunMatRef = useRef(null)
 
-  const sunMatRef = useRef()
+  const aroundRef = useRef(null)
 
-  const aroundRef = useRef()
+  const matRef = useRef(null)
 
-  const cubeRenderTarget = new WebGLCubeRenderTarget(128, {
-    colorSpace: SRGBColorSpace
-  })
-  const cubeCamera = new CubeCamera(0.1, 10, cubeRenderTarget)
-
-  const scene = new Scene()
-
-  const textureGeometry = new SphereGeometry(1, 30, 30)
-  const shaderTextureMaterial = new ShaderMaterial({
-    vertexShader: textureVertex,
-    fragmentShader: textureFragment,
-    side: DoubleSide,
-    uniforms: {
+  const uniforms = useMemo(
+    () => ({
       uTime: { value: 0 },
-    },
-  })
-  const mesh = new Mesh(textureGeometry, shaderTextureMaterial)
-  scene.add(mesh)
+      uPerlin: { value: null },
+    }),
+    []
+  )
 
   useFrame((state, delta) => {
-    cubeCamera.update(state.gl, scene)
-    shaderTextureMaterial.uniforms.uTime.value += delta
-    sunMatRef.current.uniforms.uPerlin.value = cubeRenderTarget.texture
-    sunMatRef.current.uniforms.uTime.value += delta
-    aroundRef.current.lookAt(state.camera.position)
-
+    matRef.current.uniforms.uTime.value += delta
+    uniforms.uTime.value += delta
+    aroundRef.current && aroundRef.current.lookAt(state.camera.position)
   })
 
-
   return (
-    // <primitive
-    //   object={earth.scene}
-    //   scale={2.5}
-    //   position-y={0}
-    //   rotation-y={0}
-    // />
     <>
-      <mesh scale={2} >
+      <mesh scale={1.5}>
         <sphereGeometry args={[1, 32, 32]} />
         <shaderMaterial
           ref={sunMatRef}
           vertexShader={vertexSun}
           fragmentShader={fragmentSun}
-          uniforms={{
-            uTime: { value: 0 },
-            uPerlin: { value: null }
-          }}
-        />
+          uniforms={uniforms}
+        >
+          <RenderCubeTexture
+            attach={"uniforms-uPerlin-value"}
+            resolution={256}
+            type={THREE.UnsignedByteType}
+          >
+            <cubeCamera></cubeCamera>
+            <mesh scale={2}>
+              <sphereGeometry args={[1, 32, 32]} />
+              <shaderMaterial
+                ref={matRef}
+                side={THREE.DoubleSide}
+                vertexShader={textureVertex}
+                fragmentShader={textureFragment}
+                uniforms={{
+                  uTime: { value: 0 },
+                }}
+              />
+            </mesh>
+          </RenderCubeTexture>
+        </shaderMaterial>
       </mesh>
-      <mesh scale={2} ref={aroundRef} >
-        <sphereGeometry args={[1.05, 30, 30]} />
+      <mesh ref={aroundRef} scale={1.5}>
+        <sphereGeometry args={[1.05, 32, 32]} />
         <shaderMaterial
-          side={BackSide}
+          side={THREE.BackSide}
           vertexShader={vertexAround}
           fragmentShader={fragmentAround}
         />
@@ -83,11 +75,10 @@ const Sun = () => {
 
 
 
+
 const SunCanvas = () => {
   return (
     <Canvas
-      // frameloop={"demand"}
-      gl={{ preserveDrawingBuffer: true }}
       camera={{
         fov: 45,
         near: 0.1,
