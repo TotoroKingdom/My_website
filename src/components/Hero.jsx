@@ -25,9 +25,8 @@ const Hero = () => {
           <p className={`${styles.heroSubText} mt-2
           text-white-100
           `}>
-            A Front end Web Developer , now learning Three.js <br className='sm:block hidden' />
+            A web front-end developer who is not limited to the front-end and  now working on webgl oriented <br className='sm:block hidden' />
             Lazy cancer patients, out of interest <br className='sm:block hidden' />
-            Genshin Impact lovers
           </p>
         </div>
       </div>

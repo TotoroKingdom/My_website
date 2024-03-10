@@ -7,7 +7,7 @@ import CanvasLoader from '../Loader'
 
 const Computers = ({ isMobile }) => {
 
-  const computer = useGLTF('./desktop_pc/scene.gltf')
+  const computer = useGLTF('./desktop_pc/desktop_pc.gltf')
 
   return <primitive object={computer.scene}
     position={isMobile ? [0, -3.25, -1.5] : [0, -5, -1.5]}
