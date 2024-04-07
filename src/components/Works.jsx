@@ -11,6 +11,8 @@ const ProjectCard = ({ project, index }) => {
   return (
     <>
       <motion.div
+        // whileInView={'show'}
+        // initial='hidden'
         variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
       >
         <Tilt
@@ -72,12 +74,16 @@ const Works = () => {
     <>
       <motion.div
         variants={textVariant()}
+        onAnimationStart={() => console.log('animation started')}
       >
         <p className={styles.sectionSubText}>My work</p>
         <p className={styles.sectionHeadText}>Projects.</p>
       </motion.div>
       <div className="w-full flex">
         <motion.p
+          initial='hidden'
+          whileInView={'show'}
+          viewport={{ once: true }}
           variants={fadeIn('', '', 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-x-3xl 
         leading-[30px]
