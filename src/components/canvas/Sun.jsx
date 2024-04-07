@@ -1,6 +1,6 @@
-import { Suspense, useMemo, useRef } from 'react'
+import { Suspense, useMemo, useRef, memo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Preload, useGLTF, RenderCubeTexture } from '@react-three/drei'
+import { OrbitControls, RenderCubeTexture } from '@react-three/drei'
 import textureVertex from './shader/texture/vertex.glsl'
 import textureFragment from './shader/texture/fragment.glsl'
 import vertexSun from './shader/sun/vertex.glsl'
@@ -103,4 +103,4 @@ const SunCanvas = () => {
   )
 }
 
-export default SunCanvas
+export default memo(SunCanvas)
