@@ -17,12 +17,13 @@ module.exports = {
       },
       screens: {
         xs: "450px",
+        pc: "1280px"
       },
       backgroundImage: {
         "hero-pattern": "url('/src/assets/herobg.png')",
-        "particle-pattern":"url('/src/assets/particle.png')"
+        "particle-pattern": "url('/src/assets/particle.png')"
       },
     },
   },
   plugins: [],
-};
+}
