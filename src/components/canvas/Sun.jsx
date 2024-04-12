@@ -10,6 +10,7 @@ import fragmentAround from './shader/around/fragment.glsl'
 import * as THREE from 'three'
 
 const Sun = () => {
+
   const sunMatRef = useRef(null)
 
   const aroundRef = useRef(null)
@@ -76,16 +77,17 @@ const Sun = () => {
 
 
 
-const SunCanvas = () => {
+const SunCanvas = ({ frameLoop }) => {
   return (
     <Canvas
+      demand={frameLoop}
       camera={{
         fov: 45,
         near: 0.1,
         far: 200,
         position: [-4, 3, 6.5]
-
       }}
+      dpr={[1, 2]}
     >
       <OrbitControls
         autoRotate

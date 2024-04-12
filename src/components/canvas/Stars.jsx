@@ -73,6 +73,7 @@ const StarsCanvas = () => {
     '>
       <Canvas
         camera={{ position: [0, 0, 1] }}
+        dpr={[1, 1]}
       >
         <Suspense fallback={null} >
           <Stars />

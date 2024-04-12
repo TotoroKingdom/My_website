@@ -16,6 +16,8 @@ const Contact = () => {
   })
   const [loading, setLoading] = useState(false)
 
+  const [frameLoop, setframeLoop] = useState('never')
+
   const handleChange = (e) => {
     const { name, value } = e.target
 
@@ -132,8 +134,9 @@ const Contact = () => {
       md:h-[550px]
       h-[350px]
       '
+        onAnimationEnd={() => setframeLoop('always')}
       >
-        <SunCanvas />
+        <SunCanvas frameLoop={frameLoop} />
       </motion.div>
     </div>
   )

@@ -36,6 +36,7 @@ const BallCanvas = ({ icon }) => {
   return (
     <Canvas
       gl={{ preserveDrawingBuffer: true }}
+      dpr={[1, 2]}
     >
       <OrbitControls enableZoom={false} />
 
