@@ -22,8 +22,11 @@ import {
   particles,
   threejs,
   meoCloud,
-  aigc
-} from "../assets";
+  aigc,
+  su7,
+  carousel,
+  celShading,
+} from "../assets"
 
 export const navLinks = [
   {
@@ -38,7 +41,7 @@ export const navLinks = [
     id: "contact",
     title: "Contact",
   },
-];
+]
 
 const services = [
   {
@@ -57,7 +60,7 @@ const services = [
     title: "Games and sports enthusiasts",
     icon: creator,
   },
-];
+]
 
 const technologies = [
   {
@@ -112,7 +115,7 @@ const technologies = [
     name: "docker",
     icon: docker,
   },
-];
+]
 
 const experiences = [
   {
@@ -128,20 +131,20 @@ const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
-];
+]
 
 const targets = [
   {
-    target:'I want to read and learn GLSL Shader Language book to improve myself',
-    name:'target-1'
+    target: 'I want to read and learn GLSL Shader Language book to improve myself',
+    name: 'target-1'
   },
   {
-    target:'fitness every day',
-    name:'target-2'
+    target: 'fitness every day',
+    name: 'target-2'
   },
   {
-    target:"Develop projects with partners",
-    name:'target-3'
+    target: "Develop projects with partners",
+    name: 'target-3'
   }
   // {
   //   testimonial:
@@ -167,11 +170,11 @@ const targets = [
   //   company: "456 Enterprises",
   //   image: "https://randomuser.me/api/portraits/women/6.jpg",
   // },
-];
+]
 
 
 const testimonials = [
- 
+
   // {
   //   testimonial:
   //     "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
@@ -196,7 +199,7 @@ const testimonials = [
   //   company: "456 Enterprises",
   //   image: "https://randomuser.me/api/portraits/women/6.jpg",
   // },
-];
+]
 
 const projects = [
   {
@@ -280,7 +283,7 @@ const projects = [
     source_code_link: "https://github.com/KallkaGo/acg_search",
   },
   {
-    name:'MEO.CLOUD',
+    name: 'MEO.CLOUD',
     description:
       "Web 3D virtual world, six scenes, includ challenges , chat, relax ",
     tags: [
@@ -305,7 +308,7 @@ const projects = [
     source_code_link: "https://meo.meo.plus",
   },
   {
-    name:'NanXiang-AIGC',
+    name: 'NanXiang-AIGC',
     description:
       "3D art exhibition, roaming + clicking the button to automatically go ",
     tags: [
@@ -320,7 +323,58 @@ const projects = [
     ],
     image: aigc,
     source_code_link: "https://meo.meo.plus/aigc",
+  },
+  {
+    name: 'su7',
+    description:
+      "GAMECU Su7 Replica",
+    tags: [
+      {
+        name: "react-three-fiber",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: su7,
+    source_code_link: "https://github.com/KallkaGo/su7-demo",
+  },
+  {
+    name: '3D-Carousel',
+    description:
+      "Webgl 3d Carousel",
+    tags: [
+      {
+        name: "react-three-fiber",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: carousel,
+    source_code_link: "https://github.com/KallkaGo/3D-Carousel",
+  },
+  {
+    name: 'Cel Shading',
+    description:
+      "Genshin Impact Cel Shading",
+    tags: [
+      {
+        name: "react-three-fiber",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "TypeScript",
+        color: "blue-text-gradient",
+      },
+    ],
+    image: celShading,
+    source_code_link: "https://github.com/KallkaGo/ToonShading",
   }
-];
+]
 
-export { services, technologies, experiences, testimonials, projects,targets };
+export { services, technologies, experiences, testimonials, projects, targets }
