@@ -44,6 +44,9 @@ import su7 from './project/su7.png'
 import carousel from './project/carousel.png'
 import celShading from './project/celShading.png'
 
+import pen1 from './article/1.png'
+
+
 export {
   celShading,
   carousel,
@@ -83,4 +86,5 @@ export {
   firework,
   dice,
   particles,
+  pen1,
 }
