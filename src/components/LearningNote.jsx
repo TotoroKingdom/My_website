@@ -9,22 +9,20 @@ const LearningNoteCard = ({ index, title, description, image, articlelink }) => 
     <>
       <motion.div
         variants={fadeIn('', 'spring', index * 0.5, 0.75)}
-        className='bg-black-200 p-10 rounded-3xl xs:w-full 
-      w-full cursor-pointer
+        className='bg-black-200 p-[1px] rounded-3xl xs:w-full 
+      w-full cursor-pointer green-pink-gradient
       '
         onClick={() => window.open(articlelink)}
       >
-        <p className='text-white font-bold text-[36px] '>
-          {title}
-        </p>
-        <div className='mt-1 flex items-center  '>
+        <div className='bg-tertiary rounded-3xl p-[20px] flex justify-between  items-center h-[148px]' >
+          <p className='text-white font-bold text-[36px] line-clamp-2 text-ellipsis basis-[80%] break-words '>
+            {title}-{description}
+          </p>
           <img src={image}
-            className='w-24 h-24 rounded-[15px] object-fill '
+            className='w-24 h-24 rounded-[15px] object-fill ml-[20px]'
           />
-          <p className='text-white tracking-wider
-          text-[18px] ml-[20px]
-          ' >{description}</p>
         </div>
+
 
       </motion.div>
     </>
