@@ -7,7 +7,8 @@ void main() {
   if(dis > 0.5)
     discard;
   vec3 col = texture2D(uDiffuseTexture, vUv).rgb;
-  gl_FragColor = vec4(col, 1.0);
+  float alhpa = 1. - smoothstep(0.4, 0.5, dis);
+  gl_FragColor = vec4(col, alhpa);
   #include <tonemapping_fragment>
 	#include <encodings_fragment>
 }

@@ -40,7 +40,7 @@ const Particles = () => {
     const anglesArray = new Float32Array(geometry.attributes.position.count)
 
     for (let i = 0; i < geometry.attributes.position.count; i++) {
-      intensitiesArray[i] = THREE.MathUtils.randFloat(0.5, 1)
+      intensitiesArray[i] = Math.random()
       anglesArray[i] = Math.random() * Math.PI * 2
     }
 
@@ -105,7 +105,7 @@ const Particles = () => {
     const alpha = Math.min(cursorDistance * 0.1, 1)
 
     // Draw glow
-    const glowSize = displacement.canvas.width * 0.1
+    const glowSize = displacement.canvas.width * 0.1 * .8
     displacement.context.globalCompositeOperation = 'lighten'
     displacement.context.globalAlpha = alpha
     displacement.context.drawImage(
@@ -134,6 +134,7 @@ const Particles = () => {
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
           uniforms={uniforms}
+          transparent
         ></shaderMaterial>
       </points>
       <mesh visible={false} onPointerMove={handleMove} >
