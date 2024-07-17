@@ -36,6 +36,8 @@ const Particles = () => {
   useEffect(() => {
     const points = pointsRef.current
     const geometry = points.geometry
+    geometry.setIndex(null)
+    geometry.deleteAttribute('normal')
     const intensitiesArray = new Float32Array(geometry.attributes.position.count)
     const anglesArray = new Float32Array(geometry.attributes.position.count)
 
@@ -106,7 +108,7 @@ const Particles = () => {
 
     // Draw glow
     const glowSize = displacement.canvas.width * 0.1 * .8
-    displacement.context.globalCompositeOperation = 'lighten'
+    displacement.context.globalCompositeOperation = 'lighter'
     displacement.context.globalAlpha = alpha
     displacement.context.drawImage(
       displacement.glowImage,
@@ -134,10 +136,9 @@ const Particles = () => {
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
           uniforms={uniforms}
-          transparent
         ></shaderMaterial>
       </points>
-      <mesh visible={false} onPointerMove={handleMove} >
+      <mesh visible={false} onPointerMove={handleMove} position={[0, 0, .01]} >
         <planeGeometry args={[16, 9]} />
         <meshBasicMaterial />
       </mesh>

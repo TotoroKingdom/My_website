@@ -19,7 +19,7 @@ const LearningNoteCard = ({ index, title, description, image, articlelink }) => 
             {title}-{description}
           </p>
           <img src={image}
-            className='w-24 h-24 rounded-[15px] object-fill ml-[20px]'
+            className='w-[110px] h-[74px] rounded-[5px] object-fill ml-[20px]'
           />
         </div>
 
