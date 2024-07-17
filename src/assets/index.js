@@ -1,4 +1,5 @@
-import kallkaLogo from './kallka_logo.svg'
+import kallkaLogo from './TotoroKing.svg'
+// import kallkaLogo from './Layer_1.svg'
 import backend from "./backend.png"
 import creator from "./creator.png"
 import mobile from "./mobile.png"
