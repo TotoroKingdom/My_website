@@ -44,11 +44,11 @@ export const navLinks = [
 
 const services = [
   {
-    title: "Vue Developer",
+    title: "Java Developer",
     icon: web,
   },
   {
-    title: "React Developer",
+    title: "Kotlin Developer",
     icon: mobile,
   },
   {
@@ -63,35 +63,35 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
+    name: "Spring",
     icon: html,
   },
   {
-    name: "CSS 3",
+    name: "SpringBoot",
     icon: css,
   },
   {
-    name: "JavaScript",
+    name: "SpringClout",
     icon: javascript,
   },
   {
-    name: "TypeScript",
+    name: "Mybatis",
     icon: typescript,
   },
   {
-    name: "React JS",
+    name: "MySQL",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
+    name: "Redis",
     icon: redux,
   },
   {
-    name: "Tailwind CSS",
+    name: "Netty",
     icon: tailwind,
   },
   {
-    name: "Three JS",
+    name: "Kotlin",
     icon: threejs,
   },
   {
