@@ -26,4 +26,6 @@ void main() {
   gl_FragColor = vec4(vec3(noisy), 1.);
   gl_FragColor.xyz *= mix(1., light, .7);
 
+  #include <tonemapping_fragment>
+	#include <encodings_fragment>
 }

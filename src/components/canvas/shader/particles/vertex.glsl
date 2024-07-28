@@ -31,7 +31,7 @@ void main() {
   vColor = vec3(pow(pictureIntensity, 3.));
   pictureIntensity = clamp(pictureIntensity, .4, 1.);
   gl_Position = projectedPosition;
-  gl_PointSize = 0.15 * uResolution.y * pictureIntensity;
+  gl_PointSize = 0.2 * uResolution.y * pictureIntensity;
   gl_PointSize *= (1.0 / -viewPosition.z);
   vUv = uv;
 }

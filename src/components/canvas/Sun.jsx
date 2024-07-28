@@ -26,6 +26,7 @@ const Sun = () => {
   )
 
   useFrame((state, delta) => {
+    delta %= 1
     matRef.current.uniforms.uTime.value += delta
     uniforms.uTime.value += delta
     aroundRef.current && aroundRef.current.lookAt(state.camera.position)
@@ -46,7 +47,7 @@ const Sun = () => {
             resolution={256}
             type={THREE.UnsignedByteType}
           >
-            <cubeCamera></cubeCamera>
+            <cubeCamera position={[0, 0, 5]} ></cubeCamera>
             <mesh scale={2}>
               <sphereGeometry args={[1, 32, 32]} />
               <shaderMaterial
@@ -70,6 +71,11 @@ const Sun = () => {
           fragmentShader={fragmentAround}
         />
       </mesh>
+
+      <mesh visible={false} >
+        <boxGeometry></boxGeometry>
+        <meshBasicMaterial></meshBasicMaterial>
+      </mesh>
     </>
   )
 }
@@ -84,9 +90,10 @@ const SunCanvas = ({ frameLoop }) => {
       camera={{
         fov: 45,
         near: 0.1,
-        far: 200,
-        position: [-4, 3, 6.5]
+        far: 100,
+        position: [-4, 3, 7]
       }}
+      gl={{ preserveDrawingBuffer: true, toneMapping: THREE.NoToneMapping }}
       dpr={[1, 2]}
     >
       <OrbitControls
