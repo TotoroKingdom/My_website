@@ -22,6 +22,8 @@ const Particles = () => {
 
   const displacementRef = useRef({})
 
+  const hoverStateRef = useRef(false)
+
   const gl = useThree(state => state.gl)
   const { width, height } = gl.domElement
 
@@ -30,7 +32,8 @@ const Particles = () => {
     uResolution: new THREE.Uniform(new THREE.Vector2(width * gl.getPixelRatio(), height * gl.getPixelRatio())),
     uPictureTexture: new THREE.Uniform(pictureTex),
     uDiffuseTexture: new THREE.Uniform(diffuseTex),
-    uDisplacementTexture: new THREE.Uniform()
+    uDisplacementTexture: new THREE.Uniform(),
+    uIntensity: new THREE.Uniform(0)
   }), [])
 
   useEffect(() => {
@@ -93,7 +96,19 @@ const Particles = () => {
 
 
   useFrame((state, delta) => {
+
+    delta %= 1
+
     const displacement = displacementRef.current
+
+    const hoveState = hoverStateRef.current
+
+    if (hoveState) {
+      uniforms.uIntensity.value = THREE.MathUtils.lerp(uniforms.uIntensity.value, 1, delta * 2)
+    } else {
+      uniforms.uIntensity.value = THREE.MathUtils.lerp(uniforms.uIntensity.value, 0, delta * 2)
+    }
+
 
     // Fade out
     displacement.context.globalCompositeOperation = 'source-over'
@@ -122,6 +137,7 @@ const Particles = () => {
   })
 
   const handleMove = (e) => {
+
     const displacement = displacementRef.current
     const uv = e.uv
     displacement.canvasCursor.x = uv.x * displacement.canvas.width
@@ -138,7 +154,7 @@ const Particles = () => {
           uniforms={uniforms}
         ></shaderMaterial>
       </points>
-      <mesh visible={false} onPointerMove={handleMove} position={[0, 0, .01]} >
+      <mesh visible={false} onPointerMove={handleMove} position={[0, 0, .01]} onPointerEnter={() => hoverStateRef.current = true} onPointerLeave={() => hoverStateRef.current = false} >
         <planeGeometry args={[16, 9]} />
         <meshBasicMaterial />
       </mesh>
@@ -155,7 +171,7 @@ const ParticlesCanvas = () => {
         fov: 35,
         near: 0.1,
         far: 100,
-        position: [0, 0, 18]
+        position: [0, 0, 20]
       }}
       gl={{ preserveDrawingBuffer: true, toneMapping: THREE.NoToneMapping }}
       dpr={[1, 2]}

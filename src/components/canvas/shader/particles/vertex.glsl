@@ -3,6 +3,8 @@
 uniform vec2 uResolution;
 uniform sampler2D uPictureTexture;
 uniform sampler2D uDisplacementTexture;
+uniform float uIntensity;
+
 varying vec3 vColor;
 varying vec2 vUv;
 
@@ -22,6 +24,7 @@ void main() {
   displacement *= displacementIntensity;
   displacement *= 2.;
   displacement *= aIntensity;
+  displacement *= uIntensity * 3.;
   newPosition += displacement;
 
   vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
