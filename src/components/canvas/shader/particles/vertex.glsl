@@ -3,6 +3,8 @@
 uniform vec2 uResolution;
 uniform sampler2D uPictureTexture;
 uniform sampler2D uDisplacementTexture;
+uniform float uIntensity;
+
 varying vec3 vColor;
 varying vec2 vUv;
 
@@ -22,6 +24,7 @@ void main() {
   displacement *= displacementIntensity;
   displacement *= 2.;
   displacement *= aIntensity;
+  displacement *= uIntensity * 3.;
   newPosition += displacement;
 
   vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
@@ -31,7 +34,7 @@ void main() {
   vColor = vec3(pow(pictureIntensity, 3.));
   pictureIntensity = clamp(pictureIntensity, .4, 1.);
   gl_Position = projectedPosition;
-  gl_PointSize = 0.15 * uResolution.y * pictureIntensity;
+  gl_PointSize = 0.2 * uResolution.y * pictureIntensity;
   gl_PointSize *= (1.0 / -viewPosition.z);
   vUv = uv;
 }

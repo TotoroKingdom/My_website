@@ -14,9 +14,10 @@ void main() {
 
   float birghtness = 1. + radial * .83;
 
-  gl_FragColor.rgb = brightnessToColor(birghtness)*radial;
+  gl_FragColor.rgb = brightnessToColor(birghtness) * radial;
 
-  gl_FragColor.a = radial*.5;
+  gl_FragColor.a = radial * .5;
 
-
+  #include <tonemapping_fragment>
+	#include <encodings_fragment>
 }
