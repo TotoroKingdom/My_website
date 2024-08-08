@@ -47,6 +47,8 @@ import celShading from './project/celShading.png'
 import pen1 from './article/1.png'
 
 
+import particleTex from './particles/particles.png'
+
 export {
   celShading,
   carousel,
@@ -87,4 +89,5 @@ export {
   dice,
   particles,
   pen1,
+  particleTex
 }
